@@ -8,15 +8,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nama = $_POST['nama'];
     $nik = $_POST['nik'];
     $email = $_POST['email'];
-    $no_hp = $_POST['no_hp'];
+    $telepon = $_POST['telepon'];
     $jabatan_id = $_POST['jabatan_id'];
     $tanggal_masuk = $_POST['tanggal_masuk'];
     $status = $_POST['status'];
 
-    $query = "INSERT INTO karyawan (nama, nik, email, no_hp, jabatan_id, tanggal_masuk, status)
-              VALUES ('$nama', '$nik', '$email', '$no_hp', '$jabatan_id', '$tanggal_masuk', '$status')";
+    $query = "INSERT INTO karyawan (nama, nik, email, telepon, jabatan_id, tanggal_masuk, status)
+              VALUES ('$nama', '$nik', '$email', '$telepon', '$jabatan_id', '$tanggal_masuk', '$status')";
     mysqli_query($conn, $query);
-    header('Location: ../index.php');
+    header('Location: index.php');
     exit;
 }
 ?>
@@ -26,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <title>Tambah Karyawan</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
 <div class="container mx-auto px-4 py-6">
@@ -45,8 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="email" name="email" required class="w-full border p-2 rounded">
         </div>
         <div>
-            <label class="block mb-1">No HP</label>
-            <input type="text" name="no_hp" required class="w-full border p-2 rounded">
+            <label class="block mb-1">Telepon</label>
+            <input type="text" name="telepon" required class="w-full border p-2 rounded">
         </div>
         <div>
             <label class="block mb-1">Jabatan</label>
@@ -69,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </select>
         </div>
         <div class="flex justify-between">
-            <a href="../index.php" class="text-gray-600 hover:underline">← Kembali</a>
+            <a href="index.php" class="text-gray-600 hover:underline">← Kembali</a>
             <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Simpan</button>
         </div>
     </form>
